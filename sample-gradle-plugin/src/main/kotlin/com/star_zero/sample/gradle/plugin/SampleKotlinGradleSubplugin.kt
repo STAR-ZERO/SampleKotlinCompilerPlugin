@@ -17,7 +17,10 @@ class SampleKotlinGradleSubplugin : KotlinGradleSubplugin<AbstractCompile> {
         androidProjectHandler: Any?,
         kotlinCompilation: KotlinCompilation<KotlinCommonOptions>?
     ): List<SubpluginOption> {
-        return emptyList()
+        val extension = project.extensions.findByType(SampleGradleExtension::class.java) ?: return emptyList()
+        return listOf(
+            SubpluginOption("enabled", extension.enabled.toString())
+        )
     }
 
     override fun getCompilerPluginId(): String = "sample-compiler-plugin"

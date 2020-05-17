@@ -7,6 +7,9 @@ import org.jetbrains.kotlin.config.CompilerConfiguration
 
 class SampleComponentRegistrar : ComponentRegistrar {
     override fun registerProjectComponents(project: MockProject, configuration: CompilerConfiguration) {
+        if (configuration[SampleCommandLineProcessor.KEY_ENABLED] != true) {
+            return
+        }
         ClassBuilderInterceptorExtension.registerExtension(
             project,
             SampleClassBuilderInterceptorExtension()

@@ -16,3 +16,8 @@ dependencies {
 application {
     mainClassName = "com.star_zero.sample.MainKt"
 }
+
+// enable the plugin
+sample {
+    enabled = true
+}
