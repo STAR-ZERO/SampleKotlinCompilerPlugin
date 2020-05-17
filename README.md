@@ -5,7 +5,7 @@ This plugin automatically outputs the additional text for each called method.
 
 ## Usage
 
-- At first, comment out this plugin in `sample/build.gradle.kts` because the plugin has not created yet.
+- At first, comment out this plugin and configuration in `sample/build.gradle.kts` because the plugin has not created yet.
 
 ```kotlin
 plugins {
@@ -14,6 +14,10 @@ plugins {
     // Comment out
     // id("sample-gradle-plugin") version "0.0.1"
 }
+
+//sample {
+//    enabled = true
+//}
 ```
 
 - Create plugin
@@ -22,7 +26,7 @@ plugins {
 $ ./gradlew publish
 ```
 
-- Uncomment this plugin in `sample/build.gradle.kts`
+- Uncomment this plugin and configuration in `sample/build.gradle.kts`
 
 ```kotlin
 plugins {
@@ -30,12 +34,16 @@ plugins {
     kotlin("jvm") version "1.3.72"
     id("sample-gradle-plugin") version "0.0.1"
 }
+
+sample {
+    enabled = true
+}
 ```
 
 - Run sample
 
 ```shell script
-$ ./gradlw sample:run
+$ ./gradlew sample:run
 ```
 
 - Even if you don't write the code, you can see additional text in console.
